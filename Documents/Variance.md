@@ -40,3 +40,7 @@ For this reason, the Satterthwaite (Welch) approach is often preferred in applie
 ## Summary
 
 Equality of variance assessment is an important component of independent sample t-test diagnostics. SAS automatically provides both pooled and Welch t-test results, allowing investigators to select the most appropriate method based on the variance assessment. In many practical applications, the Welch t-test provides a robust alternative when variances differ across groups.
+
+## Source
+
+For more information use SAS documentation document https://support.sas.com/documentation/onlinedoc/stat/132/ttest.pdf
