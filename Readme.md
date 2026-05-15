@@ -15,7 +15,7 @@ The independent two-sample t-test is used to compare the means of a continuous o
 
 Let:
 
-- \mu_1  and mu_2  denote the population means of the two groups  
+- mu_1  and mu_2  denote the population means of the two groups  
 
 The hypotheses are:
 
@@ -34,8 +34,8 @@ The validity of the independent two-sample t-test relies on the following assump
 Observations are independent within and between groups.
 
 ### 2. Normality
-The outcome variable is approximately normally distributed within each group. The outcome variable here is not each individual distribution under mu_1 and mu_2, but for difference between the means.
-For educational purposes the nirmality for each of the variables and distribution will be evaluate, however, the assumtion checks will be done for difference of means. This mean that it is not requered for each initial distribution to be Normal.
+The outcome variable is approximately normally distributed within each group. 
+For educational purposes the normality for each of the variables and distribution will be evaluated.
 
 Assessment includes:
 - Skewness and kurtosis  
