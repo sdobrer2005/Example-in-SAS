@@ -16,15 +16,6 @@ Because the Welch approach is robust to unequal variances, it is commonly recomm
 
 By default, SAS `PROC TTEST` uses the Folded F Test (also referred to as the F-test for equality of variances) to evaluate whether group variances are equal. This explains why the output includes `Folded F` under the `Method` column together with the F Value, numerator degrees of freedom (`Num DF`), denominator degrees of freedom (`Den DF`), and associated p-value.
 
-### Example SAS code
-
-```sas
-proc ttest data=mydata;
-   class group;
-   var outcome;
-run;
-```
-
 ---
 
 ## Interpretation
