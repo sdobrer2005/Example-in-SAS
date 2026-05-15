@@ -21,5 +21,9 @@ The `_note` documents demonstrate how to translate statistical output into clear
 ## Learning Approach
 Only one variable is fully interpreted. The remaining variables are intended as an exercise to support independent learning and consistent reporting.
 
+## Results of Normality check and usage of independent t-test
+After doing the exersice of Normality check for the additional variables. Based on my opinion, as the world is not perfect, and we will rarely have the classical Normal distribution from the actual data:
+The normality assessment demonstrated that the distributions within groups were generally approximately normal based on both formal statistical tests and graphical diagnostics. Although minor deviations from normality were observed for some group-variable combinations, these departures were small and not considered severe. Histograms, kernel density curves, and Q–Q plots showed overall symmetric and unimodal distributions with no major outliers or extreme skewness. In addition, sample sizes were balanced and sufficiently large across groups (N=50/group), supporting the robustness of parametric methods. Therefore, the Normality assumptions for independent sample t-tests were considered adequately satisfied for all evaluated variables.
+
 ## Questions
 Feel free to reach out if you have any questions or need clarification.
