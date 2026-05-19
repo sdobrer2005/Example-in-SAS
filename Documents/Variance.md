@@ -36,7 +36,11 @@ The independent sample t-test is generally robust to moderate deviations from eq
 For this reason, the Satterthwaite (Welch) approach is often preferred in applied analyses because it does not require the assumption of equal variances and provides reliable inference under variance heterogeneity.
 
 ---
+## Note
 
+Please note that t-test will automatically produce the normal and kernel density plots as well as QQ-plot. You can decide if you would like to run normality test independently using normality procedure or use the output from the T-test plots.
+
+---
 ## Summary
 
 Equality of variance assessment is an important component of independent sample t-test diagnostics. SAS automatically provides both pooled and Welch t-test results, allowing investigators to select the most appropriate method based on the variance assessment. In many practical applications, the Welch t-test provides a robust alternative when variances differ across groups.
