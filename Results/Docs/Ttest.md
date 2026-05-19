@@ -31,7 +31,7 @@ The final dataset includes:
 - F statistic for equality of variances (`FValue`)
 - Probability value for equality of variances (`ProbF`)
 
-## Note:
+## Notes:
 The actual T-test output is not exported. As an excersize you can export actual t-test output to word and compare the results of this and final output prodiced
 
 The macro automatically evaluates equality of variances using the variance comparison test and retains only the appropriate t-test results for interpretation.
