@@ -12,16 +12,19 @@ Firs individual output is created for each of the variables in the Iris data set
 This is created by Macro Ttest
 At the next stage all data sets are combined in final dataset in Macro Sets
 
+The main program created 3 independent data set from IRIS data set, and Ttest macro run for all 3 variables and pair of Species. The data sets created by main program are: SetosaVersicolor, SetosaVirginica, SetosaVersicolor. The t-test macro runs for all 4 variables from the Iris file and created 4 independent data sets: final_SepalLength, final_SepalWidth, final_PetalLength, final_PetalWidth. 
+
+After that three final combined output files are created: final_SetosaVersicolor, final_SetosaVirginica, final_SetosaVersicolor
+
 ---
 ## Final Output Dataset
 
-The macro creates one final dataset for each analyzed variable (`final_variable_name`) and then combines all individual datasets into one master dataset (`final_&dat`).
-
 The final dataset includes:
 
-- Mean estimates and confidence intervals from PROC TTEST
+- Mean estimates and confidence intervals (I decided to keep those in independent variables, however, output data can be change to Mean (Lower95%CI,Upper95%CI) using simple data manipulation. You can use it as an 
+  exersice to learn how to modify data set for what you need for final output for abstract/paper and etc.
 - Selected t-test results based on the variance comparison test:
-  - pooled t-test when equal variances are assumed
+  - Pooled t-test when equal variances are assumed
   - Satterthwaite (Welch) t-test when equal variances are not assumed
 - T-value for mean comparison (`tValue`)
 - Probability value for mean comparison (`Probt`)
