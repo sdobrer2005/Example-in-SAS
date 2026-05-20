@@ -31,6 +31,10 @@ The final dataset includes:
 - F statistic for equality of variances (`FValue`)
 - Probability value for equality of variances (`ProbF`)
 
+## Plots
+
+PROC TTEST in SAS automaticly inlcude plots for assumption checks. You can review them if needed. Those are not exported directly from the program, but usually are created as phg files and saved in the directory openned on your computer or in tmp directory (SAS 9.4 Base). The plots are saved in additional document with some notes on what those are and how to understand those.
+
 ## Notes:
 The actual T-test output is not exported. As an excersize you can export actual t-test output to word and compare the results of this and final output prodiced
 
