@@ -19,7 +19,8 @@ normality_raw_report_note - document with my explanation for the raw output
 normality_summary_report_note - document with my explanation for the output
 normality_figures_report - visualization of the results for normality assumption
 normality_figures_report_note - document with my explanation for the figures output
-
+ttest - Custom output for T-test
+Ttest_plots - Example of plots created by PROC TTEST, includes Setosa\Versicolor comparison for all four variables (with notes)
 
 ## Data
 - Dataset: IRIS (public dataset)
