@@ -1,78 +1,118 @@
-## About
 
-This repository is developed and maintained by Sabina Dobrer, P.Stat, Senior Statistician at the Women’s Health Research Institute (WHRI). With over 20 years of experience in biostatistics, epidemiology, and data science, her work focuses on the design, implementation, and standardization of analytical frameworks across clinical, population health, and administrative data.
-
-Her expertise includes advanced statistical modeling, data governance, and the development of reproducible analytical workflows that support methodological rigor, data integrity, and evidence-based decision-making across multidisciplinary research programs.
-# WHRI Statistical Methods Repository
-
-This repository establishes a standardized framework for the development, implementation, and documentation of statistical analyses within the Women’s Health Research Institute (WHRI). It is designed to support consistency, reproducibility, and methodological rigor across diverse research programs involving clinical, epidemiological, and administrative data.
-
----
-
-## Analytical Framework
-
-The repository reflects an integrated approach to the full analytical lifecycle, from data acquisition to interpretation and knowledge translation. Each method is structured as a self-contained analytical unit, ensuring that all components of the analysis are transparent, reproducible, and aligned with best practices in biostatistics and data governance.
-
-This framework supports:
-- Standardization of analytical workflows across projects  
-- Clear documentation of assumptions, methods, and results  
-- Reproducibility of statistical analyses  
-- Scalability across multiple research domains and datasets  
+# Independent Two-Sample t-test
+The independent two-sample t-test is used to compare the means of a continuous outcome between two independent groups. It evaluates whether the observed difference in means is greater than would be expected by chance under the null hypothesis.
+This branch presents a structured implementation of the independent two-sample t-test using R. It serves as both a methodological reference and a teaching example, illustrating key statistical concepts, assumptions, and interpretation within a reproducible analytical framework.
+The analyses were conducted in R using RStudio within an RStudio Project environment to support reproducible workflow organization, file management, and version control integration.
+This repository uses an RStudio Project (.Rproj) structure to organize scripts, R Markdown files, outputs, and reproducible workflows.
+  R version 4.3.2
+  RStudio 2023.09.1
+  Rproject Ttest_R
 
 ---
 
-## Standardization of Analysis
+## Overview
 
-To ensure consistency and quality, all methods follow a common structure:
-
-- `data/` – input datasets used in the analysis  
-- `macros/` – SAS code and reusable analytical components  
-- `Results/` – statistical outputs and structured interpretation  
-- `docs/` – supporting documentation, including data definitions and methodological notes  
-
-This standardized approach enables:
-- Efficient onboarding of new analysts and collaborators  
-- Reuse of validated analytical components  
-- Consistent interpretation and reporting across studies  
-- Alignment with data governance, documentation, and quality assurance practices  
+The independent two-sample t-test is used to compare the means of a continuous outcome between two independent groups. It evaluates whether the observed difference in means is greater than would be expected by chance under the null hypothesis.
 
 ---
 
-## Scope and Application
+## Statistical Formulation
 
-The repository supports a wide range of analytical approaches, including descriptive statistics, hypothesis testing, regression modeling, and advanced methods applied to longitudinal, clinical, and population health data.
+Let:
 
-The initial implementation includes:
-- Independent two-sample t-test  
-  (see branch: `T-test-for-two-independent-samples`)
+- mu_1  and mu_2  denote the population means of the two groups  
 
-Additional methods will be developed and integrated following the same framework.
+The hypotheses are:
+
+- **Null hypothesis (H₀):** mu_1 = mu_2 
+- **Alternative hypothesis (H₁):** mu_1 ^=mu_2 
+
+The test statistic is based on the standardized difference between group means, accounting for within-group variability.
 
 ---
 
-## Data Governance and Reproducibility
+## Assumptions
 
-This repository aligns with principles of:
-- Data integrity and quality assurance  
-- Transparent and auditable analytical processes  
-- Structured documentation across the data lifecycle  
-- Responsible use of sensitive and linked data  
+The validity of the independent two-sample t-test relies on the following assumptions:
 
-All analyses are designed to support reproducible research and consistent reporting standards.
+### 1. Independence
+Observations are independent within and between groups.
+
+### 2. Normality
+The outcome variable is approximately normally distributed within each group. 
+For educational purposes the normality for each of the variables and distribution will be evaluated.
+
+Assessment includes:
+- Skewness and kurtosis  
+- Formal tests (Shapiro–Wilk, Kolmogorov–Smirnov, Cramer–von Mises, Anderson–Darling)  
+
+### 3. Homogeneity of Variance
+The variances of the two groups are equal when using the pooled t-test.
+
+If this assumption is violated, the Welch t-test provides a robust alternative.
+
+---
+
+## Normality Assessment
+
+Normality is evaluated using both descriptive and formal approaches:
+
+- **Descriptive measures:**  
+  - Skewness (symmetry of distribution)  
+  - Kurtosis (tail behavior; SAS reports excess kurtosis where 0 indicates normal-like tails)
+
+- **Statistical tests:**  
+  - Shapiro–Wilk (primary test)  
+  - Kolmogorov–Smirnov  
+  - Cramer–von Mises  
+  - Anderson–Darling  
+
+**Interpretation:**
+- p-value > 0.05 → no evidence against normality  
+- p-value ≤ 0.05 → evidence of deviation from normality  
+
+Given moderate sample sizes (n ≈ 50 per group), the t-test is generally robust to mild deviations from normality.
+
+---
+
+## Variance Assessment
+
+Equality of variances is assessed prior to selecting the appropriate form of the test:
+
+- Equal variances → pooled t-test  
+- Unequal variances → Welch t-test  
+
+---
+
+## Interpretation of Results
+
+The analysis provides:
+
+- Group means and measures of variability  
+- Assessment of distributional assumptions  
+- Test statistic and p-value  
+- Confidence intervals for the difference in means  
+
+A statistically significant result indicates evidence of a difference in means between the two groups. Interpretation should consider both statistical significance and practical relevance.
+
+---
+
+## Application
+
+This example uses the IRIS dataset to demonstrate the implementation and interpretation of the independent two-sample t-test in a controlled, reproducible setting.
 
 ---
 
 ## Purpose
 
-This repository is intended to:
-- Standardize statistical analysis practices within WHRI  
-- Provide a reusable framework for analytical workflows  
-- Support training and capacity building in applied biostatistics  
-- Facilitate collaboration across multidisciplinary research teams  
+This branch serves as:
+
+- A teaching resource for understanding the independent t-test  
+- A template for standardized analytical workflows  
+- A reference for assumption assessment and interpretation  
 
 ---
 
 ## Software
 
 All analyses are conducted using SAS.
-The R code analysis will be added to replicate SAS output to have consistency between different software capabilities
