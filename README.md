@@ -6,9 +6,22 @@ The purpose is not simply to reproduce SAS output numerically. The broader goal 
 
 As additional methods are evaluated, this branch will provide a structured record of the validation process and support decisions about which R implementation is most appropriate to use.
 
-## What will be included
+This folder contains SAS and R outputs, validation tables, and supporting documentation for comparison of normality tests.
 
-For each statistical method or SAS procedure, the comparison may include:
+## How to use the available information to validate the differences manually.
+
+For each type of procedure/test/model two branches with the same name are created on under the main branch one for SAS and one for R.
+
+Both will include outputs created by specific software 
+
+There are two options:
+  * As described in each individual branch in details - you can download all the programs onto you computer and run it there
+  * You can review included within the branch outputs to review
+
+
+## What will be included here (all or selected, depending on the task)
+
+For each statistical method or SAS procedure, the comparison may include documentation about:
 
 - the SAS procedure and options used;
 - the corresponding R package and function;
