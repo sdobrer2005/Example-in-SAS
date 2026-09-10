@@ -10,9 +10,13 @@ This document explains why some normality test p-values from the R implementatio
 ## Main conclusion
 
 •	The descriptive statistics, quantiles, skewness, kurtosis, and several normality test statistics can be reproduced closely in R.
+
 •	The main remaining differences are p-values for Kolmogorov-Smirnov, Cramer-von Mises, and Anderson-Darling tests.
+
 •	These differences occur at the step where the statistic is converted into a p-value using a reference distribution, approximation formula, table, simulation, or interpolation method.
+
 •	The R function keeps nortest::cvm.test() and nortest::ad.test() because those matched the SAS CvM and AD test statistics more closely than goftest in the iris validation example.
+
 •	The p-value differences are software implementation differences, not data errors.
 
 ## Test statistic versus p-value
