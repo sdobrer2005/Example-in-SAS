@@ -1,6 +1,8 @@
 ## Distributions and Normality checks 
 (used in two independent samples t-test as assumption checks)
 
+This R function was developed to reproduce SAS PROC UNIVARIATE-style output. In the iris validation example, descriptive statistics, quantiles, skewness, kurtosis, and EDF normality test statistics matched SAS closely after rounding. Some p-values for Kolmogorov-Smirnov, Cramer-von Mises, and Anderson-Darling may differ slightly between SAS and R. These differences occur because the statistic and the p-value are separate calculations. SAS and R can compute the same EDF statistic but use different approximations, tables, simulations, or interpolation methods to convert that statistic into a p-value. The function uses KScorrect for the Lilliefors-corrected Kolmogorov-Smirnov test and nortest for Cramer-von Mises and Anderson-Darling because these choices matched the SAS statistics most closely in validation. P-value differences should be reported as software implementation differences, not data errors.
+
 # Technical note for the WHRI SAS-like PROC UNIVARIATE output function in R
 
 This document explains why some normality test p-values from the R implementation may not be numerically identical to SAS PROC UNIVARIATE, even when the descriptive statistics and the normality test statistics match closely. The focus is on the calculation step before any display cutoffs or reporting limits are applied. In other words, this note explains why two programs can calculate the same or nearly the same empirical distribution function (EDF) statistic but still produce a different p-value.
@@ -67,6 +69,28 @@ CAMIS recommends dgof::ks.test() as a commonly used R implementation of the Kolm
 The goftest package was evaluated as an alternative for Cramer-von Mises and Anderson-Darling. However, in the iris validation example, goftest changed the Cramer-von Mises and Anderson-Darling test statistics substantially compared with SAS. Therefore, goftest was not retained.
 For this repository, the priority is to reproduce SAS-like PROC UNIVARIATE output. Since nortest matched the SAS EDF test statistics more closely, nortest was kept, even though some p-values may differ slightly.
 
+# Summary of expected SAS versus R agreement
 
+| Output | Expected agreement with SAS | Comment |
+|---|---|---|
+| N, mean, SD, variance, median, min, max, range | Match after rounding | Calculated directly from the data. |
+| Q1, Q3, IQR, other quantiles | Match when using `quantile(type = 5)` | SAS quantile definition must be matched explicitly. |
+| Skewness and kurtosis | Match when using `e1071` type = 2 | Matches SAS calculation after rounding in validation. |
+| Shapiro-Wilk statistic and p-value | Match closely | Base R `shapiro.test()` matched the validation example. |
+| Kolmogorov-Smirnov statistic | Match closely | `KScorrect` used to reflect parameter estimation. |
+| Kolmogorov-Smirnov p-value | May differ | Different Lilliefors correction or simulation-based p-value method. |
+| Cramer-von Mises statistic | Match closely | `nortest` matched the SAS statistic closely in validation. |
+| Cramer-von Mises p-value | May differ | Different p-value approximation or interpolation method. |
+| Anderson-Darling statistic | Match closely | `nortest` matched the SAS statistic closely in validation. |
+| Anderson-Darling p-value | May differ | Different p-value approximation or interpolation method. |
+
+$ References
+1.	SAS Institute. Testing for Normality. SAS documentation. https://documentation.sas.com/doc/en/statug/latest/statug_intronpar_sect002.htm
+2.	SAS Institute. PROC UNIVARIATE: Goodness-of-Fit Tests. SAS documentation. https://documentation.sas.com/doc/en/procstat/9.4/procstat_univariate_details53.htm
+3.	R Core / CRAN. nortest::cvm.test documentation. https://search.r-project.org/CRAN/refmans/nortest/html/cvm.test.html
+4.	R Core / CRAN. nortest::ad.test documentation. https://search.r-project.org/CRAN/refmans/nortest/html/ad.test.html
+5.	CRAN / KScorrect. LcKS documentation. https://www.rdocumentation.org/packages/KScorrect/versions/1.4.0/topics/LcKS
+6.	PSI AIMS CAMIS. R: Kolmogorov-Smirnov test. https://psiaims.github.io/CAMIS/R/kolmogorov-smirnov_test.html
+7.	CRAN / dgof. ks.test: Kolmogorov-Smirnov Tests. https://rdrr.io/cran/dgof/man/ks.test.html
 
 
