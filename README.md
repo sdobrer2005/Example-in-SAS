@@ -26,7 +26,8 @@ This framework supports:
 To ensure consistency and quality, all methods follow a common structure:
 
 - `data/` – input datasets used in the analysis  
-- `macros/` – SAS code and reusable analytical components  
+- `macros/` – SAS code and reusable analytical components
+- `functions/` - R reusable code
 - `Results/` – statistical outputs and structured interpretation  
 - `docs/` – supporting documentation, including data definitions and methodological notes  
 
