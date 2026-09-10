@@ -19,17 +19,16 @@ Exact numerical agreement is desirable when SAS and R use the same calculation. 
 ## SAS reference implementation
 
 The R function was developed and validated against the following
-SAS `PROC UNIVARIATE` analysis. `PCTLDEF=5` is specified explicitly
-so that the SAS quantile definition corresponds to `quantile(type = 5)`
-in R.
+SAS `PROC UNIVARIATE` analysis. 
 
+**Note:** `PROC MEANS` is used in the macro to create a compact descriptive statistics dataset for the clean summary table. `PROC UNIVARIATE` already calculates the same descriptive measures, but they are spread across multiple ODS output tables. Thus, `PROC MEANS` is used for convenience and output formatting, not because different statistical calculations are required.
 
 ```sas
 proc sort data=iris out=iris_sorted;
     by Species;
 run;
 
-proc univariate data=iris_sorted normal pctldef=5;
+proc univariate data=iris_sorted normal;
     by Species;
     var SepalLength SepalWidth PetalLength PetalWidth;
 
