@@ -16,6 +16,31 @@ The comparison includes descriptive statistics and four normality tests:
 
 Exact numerical agreement is desirable when SAS and R use the same calculation. However, small differences in p-values are not considered meaningful when the test statistic is reproduced and both programs lead to the same reject/do-not-reject decision.
 
+## SAS reference implementation
+
+The R function was developed and validated against the following
+SAS `PROC UNIVARIATE` analysis. `PCTLDEF=5` is specified explicitly
+so that the SAS quantile definition corresponds to `quantile(type = 5)`
+in R.
+
+
+```sas
+proc sort data=iris out=iris_sorted;
+    by Species;
+run;
+
+proc univariate data=iris_sorted normal pctldef=5;
+    by Species;
+    var SepalLength SepalWidth PetalLength PetalWidth;
+
+    ods select
+        Moments
+        BasicMeasures
+        TestsForNormality
+        Quantiles
+        ExtremeObs;
+run;
+```
 ## R packages and options used
 
 | Output | R package / function | Options used | Different from default? | Reason |
