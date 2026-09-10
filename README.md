@@ -1,79 +1,26 @@
-## About
+# SAS and R Validation Branch
 
-This repository is developed and maintained by Sabina Dobrer, P.Stat, Senior Statistician at the Women’s Health Research Institute (WHRI). With over 20 years of experience in biostatistics, epidemiology, and data science, her work focuses on the design, implementation, and standardization of analytical frameworks across clinical, population health, and administrative data.
+This branch was created to document the ongoing comparison of statistical results produced in SAS and R.
 
-Her expertise includes advanced statistical modeling, data governance, and the development of reproducible analytical workflows that support methodological rigor, data integrity, and evidence-based decision-making across multidisciplinary research programs.
-# WHRI Statistical Methods Repository
+The purpose is not simply to reproduce SAS output numerically. The broader goal is to determine which R packages, functions, and settings most closely reproduce the statistical methods used in SAS, to identify where differences occur, and to document whether those differences affect interpretation or statistical conclusions.
 
-This repository establishes a standardized framework for the development, implementation, and documentation of statistical analyses within the Women’s Health Research Institute (WHRI). It is designed to support consistency, reproducibility, and methodological rigor across diverse research programs involving clinical, epidemiological, and administrative data.
+As additional methods are evaluated, this branch will provide a structured record of the validation process and support decisions about which R implementation is most appropriate to use.
 
----
+## What will be included
 
-## Analytical Framework
+For each statistical method or SAS procedure, the comparison may include:
 
-The repository reflects an integrated approach to the full analytical lifecycle, from data acquisition to interpretation and knowledge translation. Each method is structured as a self-contained analytical unit, ensuring that all components of the analysis are transparent, reproducible, and aligned with best practices in biostatistics and data governance.
-
-This framework supports:
-- Standardization of analytical workflows across projects  
-- Clear documentation of assumptions, methods, and results  
-- Reproducibility of statistical analyses  
-- Scalability across multiple research domains and datasets  
-
----
-
-## Standardization of Analysis
-
-To ensure consistency and quality, all methods follow a common structure:
-
-- `data/` – input datasets used in the analysis  
-- `macros/` – SAS code and reusable analytical components
-- `functions/` - R reusable code
-- `Results/` – statistical outputs and structured interpretation  
-- `docs/` – supporting documentation, including data definitions and methodological notes  
-
-This standardized approach enables:
-- Efficient onboarding of new analysts and collaborators  
-- Reuse of validated analytical components  
-- Consistent interpretation and reporting across studies  
-- Alignment with data governance, documentation, and quality assurance practices  
-
----
-
-## Scope and Application
-
-The repository supports a wide range of analytical approaches, including descriptive statistics, hypothesis testing, regression modeling, and advanced methods applied to longitudinal, clinical, and population health data.
-
-The initial implementation includes:
-- Independent two-sample t-test  
-  (see branch: `T-test-for-two-independent-samples`)
-
-Additional methods will be developed and integrated following the same framework.
-
----
-
-## Data Governance and Reproducibility
-
-This repository aligns with principles of:
-- Data integrity and quality assurance  
-- Transparent and auditable analytical processes  
-- Structured documentation across the data lifecycle  
-- Responsible use of sensitive and linked data  
-
-All analyses are designed to support reproducible research and consistent reporting standards.
-
----
-
-## Purpose
-
-This repository is intended to:
-- Standardize statistical analysis practices within WHRI  
-- Provide a reusable framework for analytical workflows  
-- Support training and capacity building in applied biostatistics  
-- Facilitate collaboration across multidisciplinary research teams  
-
----
-
-## Software
-
-All analyses are conducted using SAS.
-The R code analysis will be added to replicate SAS output to have consistency between different software capabilities
+- the SAS procedure and options used;
+- the corresponding R package and function;
+- the dataset used for validation;
+- descriptive statistics and parameter estimates;
+- test statistics;
+- p-values;
+- confidence intervals, where applicable;
+- model fit statistics and other relevant output;
+- comparison of SAS and R results;
+- identification of any numerical differences;
+- explanation of differences caused by software implementation, defaults, approximations, or calculation methods;
+- comparison of inferential decisions, such as rejection or non-rejection of the null hypothesis at a specified alpha level;
+- alternative R packages or functions considered;
+- recommended R implementation based on the validation results.
