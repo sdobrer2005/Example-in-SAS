@@ -115,4 +115,4 @@ This branch serves as:
 
 ## Software
 
-All analyses are conducted using SAS.
+All analyses are conducted using R to match SAS results as close as possilbe.
